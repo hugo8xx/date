@@ -251,6 +251,14 @@ class Date extends Carbon
                     $replace[$original] = $translated;
                 }
             }
+
+            if (in_array($character, ['Y'])) {
+                $original = parent::format($character);
+                $lang = $this->getLocale();
+                if($lang == 'th') {
+                     $replace[$original] = $original + 543;
+                }
+            }
         }
 
         // Replace translations.
